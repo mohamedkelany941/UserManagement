@@ -15,7 +15,6 @@ namespace Users.BLL.Services.Interfaces
         Task<Output<bool>> EditAsync(RegisterModel model);
         Task<bool> DeleteAsync(string id);
         Task<UserDataModel> GetByIdAsync(string id);
-        Task<UserModel> GetTokenAsync(TokenRequestModel model);
-
+       
     }
 }

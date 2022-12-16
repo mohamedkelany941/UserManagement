@@ -20,9 +20,13 @@ namespace Users.BLL.Services.Implementation
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly JWT _jwt;
-        private readonly IIdentityService _IdentityService;
 
-       
+        public IdentityService(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IOptions<JWT> jwt)
+        {
+            _userManager = userManager;
+            _roleManager = roleManager;
+            _jwt = jwt.Value;
+        }
 
         public async Task<JwtSecurityToken> CreateJwtToken(ApplicationUser user)
         {
